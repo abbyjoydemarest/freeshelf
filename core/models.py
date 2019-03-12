@@ -12,6 +12,15 @@ class Author(models.Model):
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
 
+class Category(models.Model):
+    book_category = models.CharField(max_length=200)
+    
+    def __str__(self):
+        return self.book_category
+
+    def get_absolute_url(self):
+        return reverse('category-detail', args=[str(self.id)])
+
 
 class Book(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library.)"""
@@ -21,7 +30,7 @@ class Book(models.Model):
     description = models.TextField(null=True, blank=True)
     access_online = models.URLField(max_length=200)
     date_added = models.DateField(null=True, blank=True)
-    book_category = models.CharField(max_length=200, null=True, blank=True)
+    book_category = models.ManyToManyField(Category)
 
 
     class Meta:
