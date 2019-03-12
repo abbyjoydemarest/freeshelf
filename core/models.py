@@ -21,6 +21,7 @@ class Book(models.Model):
     description = models.TextField(null=True, blank=True)
     access_online = models.URLField(max_length=200)
     date_added = models.DateField(null=True, blank=True)
+    book_category = models.CharField(max_length=200, null=True, blank=True)
 
 
     class Meta:
