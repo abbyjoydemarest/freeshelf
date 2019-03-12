@@ -5,10 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% url 'css/styles.css' %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     
 </head>
 <body>
-    
+    <div class="body">
+        <div class="other-div">
+        <div class="menu">
+            {% block sidebar %}
+                <ul class="sidebar-menu">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="">All books</a></li>
+                    <li><a href="">All authors</a></li>
+                    <li><a href="">All categories</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+        <div class="content">
+            {% block content %}{% endblock %}
+                {% block pagination %}
+                    {% if is_paginated %}
+                        <div class="pagination">
+                            <span class="page-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous Shelf</a>
+                                {% endif %}
+                                <span class="page-current">
+                                    Shelf {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                                </span>
+                                {% if page_obj.has_next %}
+                                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next Shelf</a>
+                            </span>
+                        </div>
+                    {% endif %}
+                {% endblock %}  
+            </div>
+        </div>
+    </div>
 </body>
 </html>
