@@ -8,6 +8,7 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
 
@@ -31,6 +32,3 @@ class Book(models.Model):
     
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.slug)])
-
-
-    
