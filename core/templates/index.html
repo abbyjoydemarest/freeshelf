@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Freeshelf</h1>
+<p>Welcome to your ebookshelf for free books related to coding and program development. Store ebooks here that you think you want to read in the future, or have already read may want to reference.</p>
+<h2>Freeshelf currently has</h2>
+<ul>
+    <li><strong>Books: </strong>{{ num_books }}</li>
+    <li><strong>Authors: </strong>{{ num_authors }}</li>
+    <li><strong>Categories:</strong>{{ num_categories }}</li>
+</ul>
+{% endblock %}

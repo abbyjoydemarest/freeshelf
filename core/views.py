@@ -7,7 +7,7 @@ def index(request):
     #Count all of each model so we can use them moving forward
     num_books = Book.objects.all().count()
     num_authors = Author.objects.all().count()
-    num_categories = Category.object.all().count()
+    num_categories = Category.objects.all().count()
 
     #tell it how to provide in the information each section of the dictionary is used for a different reaseon.
     context = {
