@@ -4,7 +4,7 @@ from core.models import Book, Author, Category
 # Register your models here.
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    exclude = ('slug',)
+    pass
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
@@ -13,4 +13,3 @@ class AuthorAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CatergoryAdmin(admin.ModelAdmin):
     pass
-    
