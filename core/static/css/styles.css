@@ -1,0 +1,20 @@
+.book-on-shelf{
+    display: flex;
+    flex-wrap: row;
+}
+
+
+.book-on-shelf .book-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: column;
+}
+
+.book-list .title{
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    background-color: rgba(120, 120, 120, .5);
+    border-right: .5rem solid rgba(120, 120, 120, .75);
+    border-bottom: .5rem solid rgba(120, 120, 120, .75);
+    padding: 2rem;
+}
