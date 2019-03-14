@@ -9,7 +9,7 @@ from django.utils.text import slugify
 
 def load_book_data(apps, schema_editor):
     """ Read a CSV file full of free online books and insert them into the database. """
-    Book = apps.get_modle('core', 'Book')
+    Book = apps.get_model('core', 'Book')
     datapath = os.path.join(settings.BASE_DIR, 'initial_data')
     datafile = os.path.join(datapath, 'class_list_of_books.csv')
     with open(datafile) as file:
