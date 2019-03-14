@@ -1,1 +1,1 @@
-web: gunicorn freshelf.wsgi
+web: gunicorn freeshelf.wsgi

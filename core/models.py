@@ -23,10 +23,10 @@ class Category(models.Model):
 class Book(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library.)"""
     title = models.CharField(max_length=200, null=True, blank=True)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     author = models.ManyToManyField(Author)
     description = models.TextField(null=True, blank=True)
-    access_online = models.URLField(max_length=200, null=True, blank=True)
+    access_online = models.URLField(null=True, blank=True)
     date_added = models.DateField(auto_now_add=True, null=True, blank=True)
     book_category = models.ManyToManyField(Category)
 
