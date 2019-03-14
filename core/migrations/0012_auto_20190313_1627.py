@@ -33,10 +33,10 @@ def load_book_data(apps, schema_editor):
 #             )
 #             book.save()
 
-# class Migration(migrations.Migration):
+class Migration(migrations.Migration):
 
-#     dependencies = [
-#         ('core', '0011_auto_20190313_1146'),
-#     ]
+     dependencies = [
+         ('core', '0011_auto_20190313_1146'),
+     ]
 
-#     operations = [migrations.RunPython(load_book_data)]
+     operations = [migrations.RunPython(load_book_data)]
