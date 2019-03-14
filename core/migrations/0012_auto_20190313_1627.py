@@ -29,7 +29,7 @@ def load_book_data(apps, schema_editor):
 #                 description=row['description'],
 #                 access_online=row['access_online'],
 #                 book_category=row['book_category'],
-#                 slug=slugify(row['title']),
+#                 slug=slugify(row['title'])[:50],
 #             )
 #             book.save()
 
