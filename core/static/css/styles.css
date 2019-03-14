@@ -18,3 +18,7 @@
     border-bottom: .5rem solid rgba(120, 120, 120, .75);
     padding: 2rem;
 }
+
+.base-title{
+    text-align: center;
+}

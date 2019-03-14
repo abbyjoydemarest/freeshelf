@@ -13,6 +13,25 @@
 </head>
 <body>
     <div class="body">
+        <div class="base-title">
+            <h1>Freeshelf</h1>
+        </div>
+            <nav class="main-menu">
+                <ul class="main-menu-list">
+                    {% if request.user.is_authenticated %}
+                        <li class="main-menu-item username">
+                            <strong>{{ user.username }}</strong>
+                        </li>
+                        <li class="main-menu-item logout">
+                            <a class="authurl" href="{% url 'auth_logout' %}"><strong>Logout</strong></a>
+                        </li>
+                    {% else %}
+                        <li class="main-menu-item logout">
+                            <a class="authurl" href="{% url 'auth_login' %}"><strong>Register/Login</strong></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
         <div class="other-div">
         <div class="menu">
             {% block sidebar %}
