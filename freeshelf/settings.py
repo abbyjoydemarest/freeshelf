@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #third party apps that need to go first
+    'registration',
+
     #built-in Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     #thrid party apps
     'debug_toolbar',
+
     #my apps
     'core.apps.CoreConfig',
 
@@ -125,5 +131,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#debug
 INTERNAL_IPS = ['127.0.0.1']
+
+#Registration
+ACCOUNT_ACTIVATION_DAYS = 5
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
