@@ -34,7 +34,7 @@ def load_book_data(apps, schema_editor):
                 title=row['title'],
                 description=row['description'],
                 access_online=row['access_online'],
-                slug=slugify(row['title']),
+                slug=slugify(row['title'])[:50],
             )
             book.save()
             book.book_category.set([category])
