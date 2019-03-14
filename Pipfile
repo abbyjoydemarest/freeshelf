@@ -11,6 +11,8 @@ django = "*"
 django-debug-toolbar = "*"
 django-registration-redux = "*"
 django-slugger = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
