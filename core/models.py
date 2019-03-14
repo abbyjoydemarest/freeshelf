@@ -9,7 +9,7 @@ class Author(models.Model):
     author = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return str(self.author)
+        return self.author
 
 
 class Category(models.Model):
@@ -18,7 +18,7 @@ class Category(models.Model):
     
     
     def __str__(self):
-        return str(self.book_category)
+        return self.book_category
 
 class Book(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library.)"""

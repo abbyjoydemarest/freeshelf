@@ -37,8 +37,8 @@ def load_book_data(apps, schema_editor):
                 slug=slugify(row['title']),
             )
             book.save()
-            #book.book_category.set([category])
-            #book.author.set([author])
+            book.book_category.set([category])
+            book.author.set([author])
 
             book.save()
 
