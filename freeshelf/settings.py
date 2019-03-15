@@ -34,7 +34,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #third party apps that need to go first
     'registration',
-
     #built-in Django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,13 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
     #thrid party apps
     'debug_toolbar',
-
     #my apps
     'core.apps.CoreConfig',
-
 ]
 
 MIDDLEWARE = [
@@ -89,11 +85,8 @@ WSGI_APPLICATION = 'freeshelf.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'freeshelf',
-        'USER': 'freeshelf',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

@@ -1,3 +1,5 @@
+
+
 .book-on-shelf{
     display: flex;
     flex-wrap: row;
@@ -8,15 +10,24 @@
     list-style: none;
     display: flex;
     flex-wrap: column;
+    border: solid black;
 }
 
-.book-list .title{
+.front-cover{
+    list-style: none;
+    display: flex;
+    flex-wrap: column;
+}
+
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
     writing-mode: vertical-rl;
     text-orientation: sideways;
     background-color: rgba(120, 120, 120, .5);
     border-right: .5rem solid rgba(120, 120, 120, .75);
-    border-bottom: .5rem solid rgba(120, 120, 120, .75);
-    padding: 2rem;
+    border-bottom: .5rem solid rgba(120, 120, 120, .50);
+    padding: 1rem;
 }
 
 .base-title{

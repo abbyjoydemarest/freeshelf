@@ -1,34 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Bookshelf</h1>
-<h2>Sorted by date added.</h2>
-{% if book_list %}
-<div class="book-on-shelf">
+    <h1>Bookshelf</h1>
+    <h2>Sorted by date added.</h2>
+    {% if book_list  %}
+    <div class="book-on-shelf">
     <ul class="book-list">
         {% for book in book_list %}
-        <li class="title"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
+        <li><strong class="title">{{ book.title }}</strong></li>
         <!--Add a for loop for book.author because there could be more than one-->
-        <div class="non-title">
-            {% if book.author.count %}
-            {% for author in book.author.all %}
-            <li class="author"><a href="">{{ author.author }}</a></li>
-            {% endfor %}
-            {% endif %}
-
-            <!--Add a for loop for book.category because there could be more than one-->
-            {% if book.book_category.count %}
-            {% for category in book.book_category.all %}
-            <li class="category"><a href="">{{ category.book_category }}</a></li>
-            {% endfor %}
-            {% endif %}
-            <li class="book-description">{{ book.description }}</li>
-            <li class="date">{{ book.date_added }}</li>
-            {% endfor %}
-        </div>
+            <ul class="front-cover">
+                <li class="booktitle"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
+                {% if book.author.count %}
+                    {% for author in book.author.all %}
+                        <li class="author">{{ author.author }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        {% endfor %}
     </ul>
 </div>
-{% else %}
-<p>The FreeShelf is currently empty. <a href="">Login</a> and enter some free coding books that you enjoy!</p>
-{% endif %}
+    {% else %}
+        <p>The FreeShelf is currently empty. <a href="">Login</a> and enter some free coding books that you enjoy!</p>
+    {% endif %}
 {% endblock %}

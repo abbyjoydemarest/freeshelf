@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 #static for url mapping to static files
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.conf.urls.static import static
 
 
