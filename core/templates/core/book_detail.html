@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="books">
-    <ul class="book">
-        {% for book in book_list %}
+<div class="book-on-shelf">
+    <ul class="book-list">
         <li class="booktitle"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
         <!--Add a for loop for book.author because there could be more than one-->
         <div class="non-title">

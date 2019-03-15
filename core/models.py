@@ -15,10 +15,36 @@ class Author(models.Model):
 class Category(models.Model):
 
     book_category = models.CharField(max_length=200, null=True, blank=True)
-    
-    
+    slug = models.SlugField(max_length=255)
+
+
     def __str__(self):
         return self.book_category
+    
+
+    def save(self, *args, **kwargs):
+        self.set_slug()
+        super().save(*args, **kwargs)
+
+
+    def set_slug(self):
+        #If the slug is already set, stop here.
+        if self.slug:
+            return
+
+        base_slug = slugify(self.book_category)
+        slug = base_slug
+        n = 0
+
+        while Book.objects.filter(slug=slug).count():
+            n += 1
+            slug = base_slug + "-" + str(n)
+
+        self.slug = slug
+
+    def get_absolute_url(self):
+        return reverse('category-sort', args=[str(self.slug)])
+
 
 class Book(models.Model):
     """Model representing a specific copy of a book (i.e. that can be borrowed from the library.)"""
