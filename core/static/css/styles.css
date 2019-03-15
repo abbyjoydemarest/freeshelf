@@ -11,13 +11,15 @@
     flex-wrap: wrap;
     border: solid black;
 }
+
 .individual-book{
-    background-color: lightcyan;
+    background-color:whitesmoke;
     border: solid lightblue;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: center;
+    margin: 1rem;
 }
 
 .front-cover{
@@ -26,20 +28,35 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-right: 3rem;
+    padding: 3rem;
+}
+
+.spine{
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    background-color: rgba(173, 216, 230, .5);
+    border-right: solid lightblue;
+    border-bottom: .25rem solid rgba(173, 216, 230, .50);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
 }
 
 .title{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
     writing-mode: vertical-rl;
     text-orientation: sideways;
-    background-color: rgba(120, 120, 12, .5);
-    border-right: .25rem solid rgba(110, 110, 120, .20);
-    border-bottom: .25rem solid rgba(110, 110, 120, .50);
     padding: 1rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    height: 15rem;
+    border-bottom: .15rem solid rgba(172, 216, 230, .50)
+}
+
+.id-spine{
+    padding: .5rem;
+    font-size: 15px;
 }
 
 .base-title{

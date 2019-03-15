@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
+    #'django.contrib.sites',
     #thrid party apps
     'debug_toolbar',
     #my apps
@@ -133,6 +133,7 @@ INTERNAL_IPS = ['127.0.0.1']
 
 #Registration
 ACCOUNT_ACTIVATION_DAYS = 5
+LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #heroku
