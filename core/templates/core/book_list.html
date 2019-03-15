@@ -7,7 +7,8 @@
     <div class="book-on-shelf">
     <ul class="book-list">
         {% for book in book_list %}
-        <li><strong class="title">{{ book.title }}</strong></li>
+        <div class="individual-book">
+        <li class="title-spine"><strong class="title">{{ book.title }}</strong></li>
         <!--Add a for loop for book.author because there could be more than one-->
             <ul class="front-cover">
                 <li class="booktitle"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
@@ -17,6 +18,7 @@
                     {% endfor %}
                 {% endif %}
             </ul>
+        </div>
         {% endfor %}
     </ul>
 </div>
