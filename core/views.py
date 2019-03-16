@@ -9,7 +9,7 @@ def index(request):
     num_books = Book.objects.all().count()
     num_authors = Author.objects.all().count()
     num_categories = Category.objects.all().count()
-
+    categories = Category.objects.all()
     #tell it how to provide in the information each section of the dictionary is used for a different reason.
     context = {
         'num_books': num_books,
@@ -24,4 +24,4 @@ class BookListView(generic.ListView):
     paginate = 5
 
 class BookDetailView(generic.DetailView):
-    pass
+    model = Book

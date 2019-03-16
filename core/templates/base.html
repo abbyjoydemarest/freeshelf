@@ -37,8 +37,16 @@
                 <ul class="sidebar-menu">
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'books' %}">All books</a></li>
-                    <li><a href="">All authors</a></li>
-                    <li><a href="">All categories</a></li>
+                    <li><strong>Category:</strong>
+                        {% if categories %}
+                        <ul class="category">
+                                {% for category in categories %}
+                                <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+                                {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </li>
+
                 </ul>
             {% endblock %}
         </div>

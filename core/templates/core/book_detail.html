@@ -3,24 +3,27 @@
 {% block content %}
 <div class="book-on-shelf">
     <ul class="book-list">
-        <li class="booktitle"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
-        <!--Add a for loop for book.author because there could be more than one-->
-        <div class="non-title">
-            {% if book.author.count %}
-            {% for author in book.author.all %}
-            <li class="author"><a href="">{{ author.author }}</a></li>
-            {% endfor %}
-            {% endif %}
+        <div class="individual-book">
+            <ul class="spine">
+                <li class="title"><strong>{{ book.title }}</strong></li>
+            </ul>
+            <!--Add a for loop for book.author because there could be more than one-->
+            <ul class="front-cover">
+                {% if book.author.count %}
+                {% for author in book.author.all %}
+                <li class="author"><strong>By:</strong><a href="">{{ author.author }}</a></li>
+                {% endfor %}
+                {% endif %}
 
-            <!--Add a for loop for book.category because there could be more than one-->
-            {% if book.book_category.count %}
-            {% for category in book.book_category.all %}
-            <li class="category"><a href="">{{ category.book_category }}</a></li>
-            {% endfor %}
-            {% endif %}
-            <li class="book-description">{{ book.description }}</li>
-            <li class="date">{{ book.date_added }}</li>
-            {% endfor %}
+                <!--Add a for loop for book.category because there could be more than one-->
+                {% if book.book_category.count %}
+                {% for category in book.book_category.all %}
+                <li class="category"><strong>Category:</strong><a href="">{{ category.book_category }}</a></li>
+                {% endfor %}
+                {% endif %}
+                <li class="book-description"><strong>Description:</strong>{{ book.description }}</li>
+                <li class="date"><strong>Date added:</strong>{{ book.date_added }}</li>
+            </ul>
         </div>
     </ul>
 </div>

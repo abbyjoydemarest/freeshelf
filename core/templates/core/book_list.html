@@ -5,25 +5,28 @@
     <h2>Sorted by date added.</h2> 
     {% if book_list  %}
     <div class="book-on-shelf">
-    <ul class="book-list">
-        {% for book in book_list %}
-        <div class="individual-book">
-            <ul class="spine">
-                <li class="title-spine"><strong class="title">{{ book.title }}</strong></li>
-                <li class="id-spine"><strong class="id">00{{ book.pk }}</strong></li>
-            </ul>
-        <!--Add a for loop for book.author because there could be more than one-->
-            <ul class="front-cover">
-                <li class="booktitle"><a href="{{ book.access_online }}">{{ book.title }}</a></li>
-                {% if book.author.count %}
-                    {% for author in book.author.all %}
-                        <li class="author">{{ author.author }}</li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-        </div>
-        {% endfor %}
-    </ul>
+
+        <ul class="book-list">
+            {% for book in book_list %}
+                <div class="individual-book">
+
+                    <ul class="spine">
+                        <li class="title-spine"><strong class="title">{{ book.title }}</strong></li>
+                        <li class="id-spine"><strong class="id">00{{ book.pk }}</strong></li>
+                    </ul>
+                <!--Add a for loop for book.author because there could be more than one-->
+                    <ul class="front-cover">
+                        <li class="booktitle"><a href="{{ book.get_absolute_url }}"><strong>{{ book.title }}</strong></a></li>
+                        {% if book.author.count %}
+                            {% for author in book.author.all %}
+                                <li class="author"><strong>{{ author.author }}</strong></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </ul>
+
 </div>
     {% else %}
         <p>The FreeShelf is currently empty. <a href="">Login</a> and enter some free coding books that you enjoy!</p>
