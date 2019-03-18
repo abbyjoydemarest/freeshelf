@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Bookshelf</h1>
-    <h2>Sorted by date added.</h2> 
-    {% if book_list  %}
+    <h1>{{ Category.book_category }} Shelf</h1>
+    <h2>Sorted by category</h2> 
+    {% if category_list  %}
     <div class="book-on-shelf">
 
         <ul class="book-list">
-            {% for book in book_list %}
+
                 <div class="individual-book">
 
                     <ul class="spine">
@@ -28,11 +28,11 @@
                         {% endif %}
                     </ul>
                 </div>
-            {% endfor %}
+
         </ul>
 
 </div>
     {% else %}
-        <p>The FreeShelf is currently empty. <a href="">Login</a> and enter some free coding books that you enjoy!</p>
+        <p>FreeShelf does not have any books in {{ category }} yet. <a href="">Login</a> and enter some free coding books that you enjoy from this category!</p>
     {% endif %}
 {% endblock %}

@@ -12,9 +12,10 @@
 </head>
 <body>
     <div class="body">
-        <div class="base-title">
-            <h1>Freeshelf</h1>
-        </div>
+        <div class="header-section">
+            <div class="base-title">
+                <h1>Freeshelf</h1>
+            </div>
             <nav class="main-menu">
                 <ul class="main-menu-list">
                     {% if request.user.is_authenticated %}
@@ -37,17 +38,20 @@
                 <ul class="sidebar-menu">
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'books' %}">All books</a></li>
-                    <li><strong>Category:</strong>
-                        {% if categories %}
-                        <ul class="category">
-                                {% for category in categories %}
-                                <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
-                                {% endfor %}
-                        </ul>
+                    <li>
+                        {% if category_list %}
+                            <strong>Category:</strong>
+                            <ul class="category-list">
+                                    {% for category in category_list %}
+                                    <li><a href="{{ category.get_absolute_url }}">{{ category.book_category }}</a> | </li>
+                                    {% endfor %}
+                            </ul>
                         {% endif %}
                     </li>
 
                 </ul>
+            </div>
+            </div>
             {% endblock %}
         </div>
         <div class="content">

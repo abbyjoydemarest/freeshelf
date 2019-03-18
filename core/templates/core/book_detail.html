@@ -4,11 +4,11 @@
 <div class="book-on-shelf">
     <ul class="book-list">
         <div class="individual-book">
-            <ul class="spine">
-                <li class="title"><strong>{{ book.title }}</strong></li>
+            <ul class="detail-spine">
+                <li class="detail-title"><strong>{{ book.title }}</strong></li>
             </ul>
             <!--Add a for loop for book.author because there could be more than one-->
-            <ul class="front-cover">
+            <ul class="detail-front-cover">
                 {% if book.author.count %}
                 {% for author in book.author.all %}
                 <li class="author"><strong>By:</strong><a href="">{{ author.author }}</a></li>

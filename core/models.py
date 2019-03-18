@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -43,7 +44,7 @@ class Category(models.Model):
         self.slug = slug
 
     def get_absolute_url(self):
-        return reverse('category-sort', args=[str(self.slug)])
+        return reverse('category-list', args=[str(self.slug)])
 
 
 class Book(models.Model):
@@ -55,6 +56,9 @@ class Book(models.Model):
     access_online = models.URLField(null=True, blank=True)
     date_added = models.DateField(auto_now_add=True, null=True, blank=True)
     book_category = models.ManyToManyField(Category)
+
+    # Worked through with help of AJ's notes
+    favorited_by = models.ManyToManyField(to=User, related_name='faovrite_books', through='Favorite')
 
 
     def save(self, *args, **kwargs):
@@ -88,3 +92,9 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book-detail', args=[str(self.slug)])
+
+class Favorite(models.Model):
+    """Model representing a favorite book.
+    """
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
